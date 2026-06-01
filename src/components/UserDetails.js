@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
 function UserDetails() {
   const { id } = useParams();
 
@@ -14,8 +13,10 @@ function UserDetails() {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setUser(data);
-        setLoading(false);
+        setTimeout(() => {
+          setUser(data);
+          setLoading(false);
+        }, 500);
       });
   }, [id]);
 
